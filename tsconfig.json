@@ -6,7 +6,8 @@
         "module": "commonjs",
         "target": "es5",
         "jsx": "react",
-        "strict": true
+        "strict": true,
+        "resolveJsonModule": true
     },
     "include": [
         "src/**/*"
