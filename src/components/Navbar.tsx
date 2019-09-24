@@ -1,17 +1,29 @@
 import * as React from 'react';
-import { makeStyles } from '@material-ui/styles';
-import { AppBar } from '@material-ui/core';
-import { useScrollTrigger } from '@material-ui/core';
-import { Slide } from '@material-ui/core';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { 
+    AppBar,
+    Slide,
+    Toolbar,
+    Typography,
+    useScrollTrigger,
+    Theme,
+    CssBaseline,
+ } from '@material-ui/core';
+ import * as texts from '../assets/pageTexts.json';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => createStyles({
     root: {
-        background: '#4e008e',
-    }
-});
+        borderBottom: `1px solid ${theme.palette.common.white}`
+    },
+    toolbar: {
+        flexWrap: 'wrap',
+    },
+    toolbarTitle: {
+        flexGrow: 1,
+    },
+}));
 
-const HideOnScroll: React.FC = ({children}) => {
-    console.log(children);
+const HideOnScroll: React.FC = ( { children } ) => {
     const trigger = useScrollTrigger();
     return (
         <Slide appear={false} direction="down" in={!trigger}>
@@ -28,18 +40,21 @@ const Navbar: React.FC = () => {
         arr.push(test);
     }
     return (
-        <div>
+        <React.Fragment>
+            <CssBaseline />
             <HideOnScroll>
                 <AppBar elevation={0} className={classes.root}>
-                    <div>
-                        Hello
-                    </div>
+                    <Toolbar className={classes.toolbar}>
+                        <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
+                            {texts.groupName}
+                        </Typography>
+                    </Toolbar>
                 </AppBar>
             </HideOnScroll>
             <div>
                 { arr.map( line => line )}
             </div>
-        </div>
+        </React.Fragment>
     );
 }
 
