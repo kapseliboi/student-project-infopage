@@ -1,3 +1,14 @@
 {
-    "groupName": "Group++"
+    "groupName": "Group++",
+    "navBar": {
+        "home": "Home",
+        "about": "About",
+        "team": "Our team",
+        "contact": "Contact Us"
+    },
+    "frontPage": {
+        "heroHeader": "Your vision. Our expertise.",
+        "heroText": "Building the best digital arena experience in the whole world.",
+        "introduction": "Group++ is truly an innovative group of young stars who are ready to revolutionize digital experiences during arena events at Kansiareena."
+    }
 }
