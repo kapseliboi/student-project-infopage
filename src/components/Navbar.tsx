@@ -17,7 +17,8 @@ import * as texts from '../assets/pageTexts.json';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     root: {
-        borderBottom: `1px solid ${theme.palette.common.white}`
+        borderBottom: `1px solid ${theme.palette.common.black}`,
+        background: '#e04232',
     },
     toolbar: {
         justifyContent: 'space-around',
@@ -36,6 +37,10 @@ const HideOnScroll: React.FC = ( { children } ) => {
             { children }
         </Slide>
     );
+}
+
+const scrollToTop = () => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 }
 
 const Navbar: React.FC = () => {
@@ -59,10 +64,10 @@ const Navbar: React.FC = () => {
                             {texts.groupName}
                         </Link>
                         <div>
-                            <Button variant='text'>
+                            <Button variant='text' onClick={scrollToTop}>
                                 {texts.navBar.home}
                             </Button>
-                            <Button variant='text'>
+                            <Button variant='text' onClick={scrollToTop}>
                                 {texts.navBar.about}
                             </Button>
                             <Button variant='text'>
