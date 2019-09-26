@@ -1,8 +1,26 @@
 import * as React from 'react';
-import { Container, Typography, makeStyles, Theme, createStyles } from '@material-ui/core';
+import {
+    Container,
+    Typography,
+    makeStyles,
+    Theme,
+    createStyles,
+    Grid,
+} from '@material-ui/core';
+import EmojiObjects from '@material-ui/icons/EmojiObjectsOutlined';
+import SwapHoriz from '@material-ui/icons/SwapHorizOutlined';
+import OutlinedFlag from '@material-ui/icons/OutlinedFlagOutlined';
+import SentimentSatisfiedAlt from '@material-ui/icons/SentimentSatisfiedAltOutlined';
 
+import CircularImageWithTexts from './CircularImageWithTexts';
 import * as texts from '../assets/pageTexts.json';
 const heroBackground = require('../assets/kansiareena.jpg');
+const akseliImage = require('../assets/akseli.jpg');
+const eliasImage = require('../assets/elias.png');
+const juhaImage = require('../assets/juha.jpg');
+const magomedImage = require('../assets/magomed.png');
+const nikovImage = require('../assets/niko.jpg');
+const pietariImage = require('../assets/pietari.jpg');
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     hero: {
@@ -10,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         paddingBottom: theme.spacing(20),
         textShadow: '2px 2px #000000',
         color: '#ffffff',
-        background: 'rgba(41, 44, 61, 0.2)'
+        background: 'rgba(192, 57, 43, 0.2)'
     },
     heroImage: {
         background: `url(${heroBackground}) center fixed`,
@@ -27,23 +45,62 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         fontWeight: 400,
     },
     heroContainer: {
-        background: 'rgba(41, 44, 61, 0.5)',
+        background: 'rgba(192, 57, 43, 0.5)',
         paddingTop: theme.spacing(10),
         paddingBottom: theme.spacing(5),
     },
-    introduction: {
-        background: '#4e008e',
+    coloredTextBox: {
+        background: '#c0392b',
         color: '#ffffff',
         paddingTop: theme.spacing(10),
         paddingBottom: theme.spacing(10),
-        borderTop: '1px solid black',
-        borderBottom: '1px solid black',
     },
-    why: {
+    whiteTextBox: {
         background: '#ffffff',
         paddingTop: theme.spacing(10),
         paddingBottom: theme.spacing(10),
     },
+    blockquote: {
+        [theme.breakpoints.up('sm')]: {
+            fontSize: '2rem'
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '1rem',
+        },
+        paddingRight: '5rem',
+        paddingLeft: '5rem',
+        position: 'relative',
+        maxWidth: '70%',
+        width: 'auto',
+        margin: 'auto',
+        "&::before": {
+            content: "'\"'",
+            fontSize: '8rem',
+            fontStyle: 'italic',
+            fontWeight: 500,
+            position: 'absolute',
+            color: '#ffffff',
+            left: '1rem',
+            top: "-2rem",
+        },
+        "&:after": {
+            content: "'\"'",
+            fontSize: '8rem',
+            fontWeight: 500,
+            fontStyle: 'italic',
+            position: 'absolute',
+            color: '#ffffff',
+            right: '2rem',
+            top: '-2rem',
+        },
+    },
+    cite: {
+        textAlign: 'right',
+        fontSize: '1.5rem',
+        fontStyle: 'italic',
+        display: 'block',
+        marginRight: '5rem',
+    }
 }));
 
 const Frontpage: React.FC = () => {
@@ -61,7 +118,7 @@ const Frontpage: React.FC = () => {
                     </Typography>
                 </div>
             </section>
-            <section className={classes.introduction}>
+            <section className={classes.coloredTextBox}>
                 <Container>
                     <Typography variant='h5' align='center'>
                         {texts.frontPage.introduction}
@@ -69,12 +126,113 @@ const Frontpage: React.FC = () => {
 
                 </Container>
             </section>
-            <section className={classes.why}>
+            <section className={classes.whiteTextBox}>
                 <Container>
                     <Typography variant='h4' align='center'>
-                        {texts.frontPage.why}
+                        {texts.frontPage.why.title}
                     </Typography>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12}  sm={12} md={4}>
+                            <CircularImageWithTexts
+                                icon={<EmojiObjects />}
+                                header={texts.frontPage.why.argument1.title}
+                                description={texts.frontPage.why.argument1.description}
+                                key={"innovation"}
+                            />
+                        </Grid>
+                        <Grid item xs={12}  sm={12} md={4}>
+                            <CircularImageWithTexts
+                                icon={<SwapHoriz />}
+                                header={texts.frontPage.why.argument2.title}
+                                description={texts.frontPage.why.argument2.description}
+                                key={"agile"}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={4}>
+                            <CircularImageWithTexts
+                                icon={<OutlinedFlag />}
+                                header={texts.frontPage.why.argument3.title}
+                                description={texts.frontPage.why.argument3.description}
+                                key={"determination"}
+                            />
+                        </Grid>
+                    </Grid>
                 </Container>
+            </section>
+            <section className={classes.coloredTextBox}>
+                <blockquote className={classes.blockquote} cite={texts.frontPage.clientCitation.client}>
+                    {texts.frontPage.clientCitation.citation}
+                </blockquote>
+                <cite className={classes.cite}>{texts.frontPage.clientCitation.client}</cite>
+            </section>
+            <section className={classes.whiteTextBox}>
+                <Container>
+                    <Typography variant='h3' align='center'>
+                        {texts.frontPage.team.header}
+                    </Typography>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12}>
+                            <CircularImageWithTexts
+                                image={juhaImage}
+                                header={texts.juha.name}
+                                description={texts.juha.title}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={4}>
+                            <CircularImageWithTexts
+                                image={nikovImage}
+                                header={texts.nikoV.name}
+                                description={texts.nikoV.title}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={4}>
+                            <CircularImageWithTexts
+                                image={magomedImage}
+                                header={texts.magomed.name}
+                                description={texts.magomed.title}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={4}>
+                            <CircularImageWithTexts
+                                image={pietariImage}
+                                header={texts.pietari.name}
+                                description={texts.pietari.title}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={4}>
+                            <CircularImageWithTexts
+                                image={eliasImage}
+                                header={texts.elias.name}
+                                description={texts.elias.title}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={4}>
+                            <CircularImageWithTexts
+                                icon={<SentimentSatisfiedAlt />}
+                                header={texts.nikoL.name}
+                                description={texts.nikoL.title}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={4}>
+                            <CircularImageWithTexts
+                                image={akseliImage}
+                                header={texts.akseli.name}
+                                description={texts.akseli.title}
+                            />
+                        </Grid>
+                    </Grid>
+                </Container>
+            </section>
+            <section className={classes.coloredTextBox}>
+                <blockquote className={classes.blockquote} cite={texts.frontPage.memberCitation.member}>
+                    {texts.frontPage.memberCitation.citation}
+                </blockquote>
+                <cite className={classes.cite}>{texts.frontPage.memberCitation.member}</cite>
+            </section>
+            <section className={classes.whiteTextBox}>
+                <Typography variant="h5" align="center">
+                    {texts.frontPage.contact}
+                </Typography>
             </section>
         </>
     );

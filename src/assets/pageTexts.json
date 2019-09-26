@@ -4,12 +4,66 @@
         "home": "Home",
         "about": "About",
         "team": "Our team",
-        "contact": "Contact Us"
+        "contact": "Contact"
     },
     "frontPage": {
         "heroHeader": "Your vision. Our expertise.",
         "heroText": "Building the best digital arena experience in the whole world.",
-        "introduction": "Group++ is truly an innovative group of young stars who are ready to revolutionize digital experiences during arena events at Kansiareena.",
-        "why": "Why Group++?"
+        "introduction": "Group++ is truly an innovative group of young stars who are ready to revolutionize digital experiences during arena events at Kansiareena. Group++ consists of seven passionate teekkaris who are ready to change the way we look at the world.",
+        "why": {
+            "title": "Why Group++?",
+            "argument1": {
+                "title": "Innovation",
+                "description": "We offer the latest solutions to current digitalization challenges using cutting edge technology."
+            },
+            "argument2": {
+                "title": "Agile",
+                "description": "We are purely an agile organization thanks to our small size and active people."
+            },
+            "argument3": {
+                "title": "Determination",
+                "description": "We take pride in our work and our products are always a result of true passion."
+            }
+        },
+        "clientCitation": {
+            "client": "Current client",
+            "citation": "Right from the beginning I felt that Group++ had everything under control which allowed me to focus on the essentials."
+        },
+        "team": {
+            "header": "Introducing the Group++ team"
+        },
+        "memberCitation": {
+            "member": "Akseli Käppi",
+            "citation": "Group++ has given me so much that it's hard to put in words. I simply want to say that the ride has been amazing so far and I can feel the impact we make every single day!"
+        },
+        "contact": "Please do hesitate to contact us!"
+    },
+    "juha": {
+        "name": "Juha Suvanto",
+        "title": "Project Manager"
+    },
+    "akseli": {
+        "name": "Akseli Käppi",
+        "title": "Lead Security Engineer"
+    },
+    "elias": {
+        "name": "Elias Wuoti",
+        "title": "Quality Assurance Leader"
+    },
+    "nikoL": {
+        "name": "Niko Lappalainen",
+        "title": "Testing Expert"
+    },
+    "nikoV": {
+        "name": "Niko Vihantavaara",
+        "title": "Product Owner"
+    },
+    "magomed": {
+        "name": "Magomed Udratov",
+        "title": "Lead Architect"
+    },
+    "pietari": {
+        "name": "Pietari Poutiainen",
+        "title": "Lead Requirement Engineer"
     }
 }
