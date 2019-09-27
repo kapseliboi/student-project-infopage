@@ -1,12 +1,13 @@
 const path = require('path'),
-    HtmlWebpackPlugin = require('html-webpack-plugin');
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 module.exports = {
     entry: './src/index.tsx',
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: 'js/[name].bundle.js'
+        filename: 'js/[name].[hash].bundle.js'
     },
-    devtool: 'source-map',
     resolve: {
         extensions: ['.js', '.jsx', '.json', '.ts', '.tsx']
     },
@@ -54,6 +55,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'index.html')
-        })
+        }),
+        new CleanWebpackPlugin()
     ]
-}
+};
