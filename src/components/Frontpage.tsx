@@ -108,11 +108,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         display: 'block',
         width: 350,
         height: 350,
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('xs')]: {
             width: 350,
             height: 350,
         },
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down('xs')]: {
             width: 200,
             height: 200,
         },
@@ -255,7 +255,7 @@ const Frontpage: React.FC<Props> = (props) => {
                 <Typography variant='h2' align='center'>
                     {texts.frontPage.partners}
                 </Typography>
-                <Grid container spacing={3} alignItems='center' justify='center' alignContent='center'>
+                <Grid container alignItems='center' justify='center' alignContent='center'>
                     <Grid item xs={12} sm={12} md={6}>
                         <img src={profit} alt={'Profit software logo'} className={classes.partnerImage} />
                     </Grid>
