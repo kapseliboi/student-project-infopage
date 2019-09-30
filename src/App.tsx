@@ -10,9 +10,9 @@ import { Toolbar } from '@material-ui/core';
 const App: React.FC = () =>
   <React.Fragment>
     <CssBaseline />
-    <Route path='*' component={Navbar} />
+    <Route path='*' render={() => <Navbar aboutId={'about'} contactId={'contact'} teamId={'team'} />} />
     <Toolbar />
-    <Route path='/' component={Frontpage} />
+    <Route path='/' render={() => <Frontpage aboutId={'about'} contactId={'contact'} teamId={'team'} />} />
   </React.Fragment>
 
 export default App;

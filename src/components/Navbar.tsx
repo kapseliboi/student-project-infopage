@@ -28,7 +28,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     toolbarTitle: {
         justifyContent: 'space-between'
     },
+    navigationButton: {
+        color: '#fff'
+    }
 }));
+
+export interface Props {
+    aboutId: string;
+    teamId: string;
+    contactId: string;
+}
 
 const HideOnScroll: React.FC = ( { children } ) => {
     const trigger = useScrollTrigger();
@@ -43,8 +52,19 @@ const scrollToTop = () => {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 }
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<Props> = (props) => {
     const classes = useStyles();
+
+    const { aboutId, teamId, contactId } = props;
+
+    const scrollInto = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    }
 
     const frontpageLink = React.forwardRef((props, ref) => <RouterLink {...props} to='/' />)
     return (
@@ -64,16 +84,16 @@ const Navbar: React.FC = () => {
                             {texts.groupName}
                         </Link>
                         <div>
-                            <Button variant='text' onClick={scrollToTop}>
+                            <Button variant='text' onClick={scrollToTop} className={classes.navigationButton}>
                                 {texts.navBar.home}
                             </Button>
-                            <Button variant='text' onClick={scrollToTop}>
+                            <Button variant='text' onClick={() => scrollInto(aboutId)} className={classes.navigationButton}>
                                 {texts.navBar.about}
                             </Button>
-                            <Button variant='text'>
+                            <Button variant='text' onClick={() => scrollInto(teamId)} className={classes.navigationButton}>
                                 {texts.navBar.team}
                             </Button>
-                            <Button variant='text'>
+                            <Button variant='text' onClick={() => scrollInto(contactId)} className={classes.navigationButton}>
                                 {texts.navBar.contact}
                             </Button>
                         </div>

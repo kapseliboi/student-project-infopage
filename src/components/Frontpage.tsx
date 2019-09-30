@@ -103,8 +103,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     }
 }));
 
-const Frontpage: React.FC = () => {
+interface Props extends NavbarProps {
+}
+
+const Frontpage: React.FC<Props> = (props) => {
     const classes = useStyles();
+    
+    const { aboutId, teamId, contactId } = props;
+
     return (
         <>
             <div className={classes.heroImage} />
@@ -118,7 +124,7 @@ const Frontpage: React.FC = () => {
                     </Typography>
                 </div>
             </section>
-            <section className={classes.coloredTextBox}>
+            <section className={classes.coloredTextBox} id={aboutId}>
                 <Container>
                     <Typography variant='h5' align='center'>
                         {texts.frontPage.introduction}
@@ -165,7 +171,7 @@ const Frontpage: React.FC = () => {
                 </blockquote>
                 <cite className={classes.cite}>{texts.frontPage.clientCitation.client}</cite>
             </section>
-            <section className={classes.whiteTextBox}>
+            <section className={classes.whiteTextBox} id={teamId}>
                 <Container>
                     <Typography variant='h3' align='center'>
                         {texts.frontPage.team.header}
