@@ -5,6 +5,9 @@ module.exports = merge(common, {
     mode: 'development',
     devtool: 'source-map',
     devServer: {
-        contentBase: './dist'
+        contentBase: './dist',
+        watchOptions: {
+            poll: true
+        }
     }
 });
