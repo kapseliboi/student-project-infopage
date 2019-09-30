@@ -13,14 +13,16 @@ import OutlinedFlag from '@material-ui/icons/OutlinedFlagOutlined';
 import SentimentSatisfiedAlt from '@material-ui/icons/SentimentSatisfiedAltOutlined';
 
 import CircularImageWithTexts from './CircularImageWithTexts';
+import { Props as NavbarProps } from './Navbar';
 import * as texts from '../assets/pageTexts.json';
 const heroBackground = require('../assets/kansiareena.jpg');
 const akseliImage = require('../assets/akseli.jpg');
 const eliasImage = require('../assets/elias.png');
 const juhaImage = require('../assets/juha.jpg');
-const magomedImage = require('../assets/magomed.png');
 const nikovImage = require('../assets/niko.jpg');
 const pietariImage = require('../assets/pietari.jpg');
+const tuni = require('../assets/tuni.svg');
+const profit = require('../assets/profit.svg');
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     hero: {
@@ -70,7 +72,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         paddingRight: '5rem',
         paddingLeft: '5rem',
         position: 'relative',
-        maxWidth: '70%',
+        maxWidth: '100%',
         width: 'auto',
         margin: 'auto',
         "&::before": {
@@ -100,6 +102,20 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         fontStyle: 'italic',
         display: 'block',
         marginRight: '5rem',
+    },
+    partnerImage: {
+        margin: 'auto',
+        display: 'block',
+        width: 350,
+        height: 350,
+        [theme.breakpoints.up('sm')]: {
+            width: 350,
+            height: 350,
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: 200,
+            height: 200,
+        },
     }
 }));
 
@@ -143,7 +159,7 @@ const Frontpage: React.FC<Props> = (props) => {
                                 icon={<EmojiObjects />}
                                 header={texts.frontPage.why.argument1.title}
                                 description={texts.frontPage.why.argument1.description}
-                                key={"innovation"}
+                                key={'innovation'}
                             />
                         </Grid>
                         <Grid item xs={12}  sm={12} md={4}>
@@ -151,7 +167,7 @@ const Frontpage: React.FC<Props> = (props) => {
                                 icon={<SwapHoriz />}
                                 header={texts.frontPage.why.argument2.title}
                                 description={texts.frontPage.why.argument2.description}
-                                key={"agile"}
+                                key={'agile'}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={4}>
@@ -159,7 +175,7 @@ const Frontpage: React.FC<Props> = (props) => {
                                 icon={<OutlinedFlag />}
                                 header={texts.frontPage.why.argument3.title}
                                 description={texts.frontPage.why.argument3.description}
-                                key={"determination"}
+                                key={'determination'}
                             />
                         </Grid>
                     </Grid>
@@ -193,7 +209,7 @@ const Frontpage: React.FC<Props> = (props) => {
                         </Grid>
                         <Grid item xs={12} sm={12} md={4}>
                             <CircularImageWithTexts
-                                image={magomedImage}
+                                icon={<SentimentSatisfiedAlt />}
                                 header={texts.magomed.name}
                                 description={texts.magomed.title}
                             />
@@ -236,7 +252,20 @@ const Frontpage: React.FC<Props> = (props) => {
                 <cite className={classes.cite}>{texts.frontPage.memberCitation.member}</cite>
             </section>
             <section className={classes.whiteTextBox}>
-                <Typography variant="h5" align="center">
+                <Typography variant='h2' align='center'>
+                    {texts.frontPage.partners}
+                </Typography>
+                <Grid container spacing={3} alignItems='center' justify='center' alignContent='center'>
+                    <Grid item xs={12} sm={12} md={6}>
+                        <img src={profit} alt={'Profit software logo'} className={classes.partnerImage} />
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={6}>
+                        <img src={tuni} alt={'Tuni logo'} className={classes.partnerImage} />
+                    </Grid>
+                </Grid>
+            </section>
+            <section className={classes.coloredTextBox} id={contactId}>
+                <Typography variant='h5' align='center'>
                     {texts.frontPage.contact}
                 </Typography>
             </section>
