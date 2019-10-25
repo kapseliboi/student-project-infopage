@@ -6,6 +6,7 @@ import {
     Theme,
     createStyles,
     Grid,
+    Link,
 } from '@material-ui/core';
 import EmojiObjects from '@material-ui/icons/EmojiObjectsOutlined';
 import SwapHoriz from '@material-ui/icons/SwapHorizOutlined';
@@ -265,6 +266,9 @@ const Frontpage: React.FC<Props> = (props) => {
                 </Grid>
             </section>
             <section className={classes.coloredTextBox} id={contactId}>
+                <Typography variant='h5' align='center'>
+                    {texts.frontPage.course} <Link target='_blank' rel='noopener noreferrer' href={texts.frontPage.courseLink}>{texts.frontPage.courseLinkText}</Link>
+                </Typography>
                 <Typography variant='h5' align='center'>
                     {texts.frontPage.contact}
                 </Typography>
